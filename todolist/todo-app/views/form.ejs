@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><h1>Task Manager</h1></header>
+  <div class="container">
+
+    <!-- Task Form -->
+    <h2>Add a Task</h2>
+    <form action="/insertTask" method="POST" class="task-form">
+      <div class="form-group">
+        <label>Task ID</label>
+        <input type="text" name="taskId" required>
+      </div>
+      <div class="form-group">
+        <label>Task Name</label>
+        <input type="text" name="taskName" required>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="taskDesc"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time" name="taskTime" required>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="taskDate" required>
+      </div>
+      <div class="form-group">
+        <label>Efficiency</label>
+        <select name="taskEfficiency">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <button type="submit">Add Task</button>
+    </form>
+    
+    <!-- Task Table -->
+    <h2>Task List</h2>
+    <% if (tasks.length === 0) { %>
+      <p class="empty">✨ No tasks yet. Add one above!</p>
+    <% } else { %>
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Efficiency</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% tasks.forEach(task => { %>
+            <tr>
+              <td><%= task.taskId %></td>
+              <td><%= task.taskName %></td>
+              <td><%= task.taskDesc %></td>
+              <td><%= task.taskTime %></td>
+              <td><%= task.taskDate %></td>
+              <td><%= task.taskEfficiency %></td>
+              <td class="actions">
+                <a href="/editTask?id=<%= task.taskId %>" class="edit">Edit</a>
+                <a href="/deleteTask?id=<%= task.taskId %>" class="delete">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+</body>
+</html>
