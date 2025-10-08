@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+</head>
+<body style="font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #d4fc79, #96e6a1); color: #2c3e50; text-align: center; padding: 60px;">
+
+  <h1 style="color: #1e3c72; font-size: 50px; text-shadow: 2px 2px 6px #00000030;">
+    Welcome To Html To Node
+  </h1>
+
+  <p style="font-size: 22px; color: #fff; background: rgba(0, 0, 0, 0.25); display: inline-block; padding: 12px 25px; border-radius: 14px; margin-top: 15px;">
+    This page is Index Page
+  </p>
+
+  <br><br>
+
+  <a href="/about" 
+     style="text-decoration: none; font-size: 18px; color: #fff; background-color: #1e3c72; padding: 10px 25px; border-radius: 28px; transition: 0.3s; margin: 10px; display: inline-block;">
+     About
+  </a>
+
+  <a href="/contact" 
+     style="text-decoration: none; font-size: 18px; color: #fff; background-color: #0575e6; padding: 10px 25px; border-radius: 28px; transition: 0.3s; margin: 10px; display: inline-block;">
+     Contact
+  </a>
+
+  <script>
+    // Hover effects for buttons
+    const links = document.querySelectorAll('a');
+    links[0].onmouseover = () => links[0].style.backgroundColor = '#34e89e';
+    links[0].onmouseout = () => links[0].style.backgroundColor = '#1e3c72';
+    links[1].onmouseover = () => links[1].style.backgroundColor = '#6a11cb';
+    links[1].onmouseout = () => links[1].style.backgroundColor = '#0575e6';
+  </script>
+
+</body>
+</html>
