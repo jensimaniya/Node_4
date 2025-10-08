@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Book</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e9eef3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 30px 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      padding: 12px;
+      border: 1px solid #ccd1d9;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #fdfdfd;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus {
+      border-color: #5dade2;
+      outline: none;
+    }
+
+    label {
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+      margin-bottom: -5px;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+      transform: translateY(-1px);
+    }
+
+    a.btn {
+      margin-top: 18px;
+      display: inline-block;
+      background-color: #6c757d;
+    }
+
+    a.btn:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <h1>✏️ Edit Book</h1>
+
+  <form action="/edit/<%= book._id %>" method="POST">
+    <input type="text" name="title" value="<%= book.title %>" required>
+    <input type="text" name="author" value="<%= book.author %>" required>
+    <input type="text" name="publisher" value="<%= book.publisher %>">
+    <input type="text" name="genre" value="<%= book.genre %>">
+    <input type="number" name="price" value="<%= book.price %>">
+
+    <label>Issue Date:</label>
+    <input type="date" name="issueDate" value="<%= book.issueDate ? book.issueDate.toISOString().split('T')[0] : '' %>">
+
+    <label>Return Date:</label>
+    <input type="date" name="returnDate" value="<%= book.returnDate ? book.returnDate.toISOString().split('T')[0] : '' %>">
+
+    <input type="text" name="studentName" value="<%= book.studentName %>">
+    <input type="text" name="studentId" value="<%= book.studentId %>">
+
+    <button type="submit" class="btn">Update</button>
+  </form>
+
+  <a href="/" class="btn">⬅️ Back</a>
+</body>
+</html>

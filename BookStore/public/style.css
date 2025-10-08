@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f8f9fa;
+}
+h1 {
+  color: #2c3e50;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.btn {
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  text-decoration: none;
+  margin: 2px;
+  border-radius: 4px;
+}
+.btn.delete {
+  background: #e74c3c;
+}
+input, button {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}

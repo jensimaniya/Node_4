@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Book</title>
+</head>
+<body style="font-family: 'Segoe UI', sans-serif; background-color: #eef2f5; margin: 0; padding: 40px; text-align: center;">
+
+  <h1 style="color: #34495e; margin-bottom: 30px;">➕ Add New Book</h1>
+
+  <form action="/add" method="POST" 
+        style="background-color: #ffffff; padding: 35px 30px; max-width: 450px; margin: 0 auto; 
+               border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); display: flex; 
+               flex-direction: column; gap: 18px;">
+    
+    <input type="text" name="title" placeholder="Book Title" required 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <input type="text" name="author" placeholder="Author" required 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <input type="text" name="publisher" placeholder="Publisher" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <input type="text" name="genre" placeholder="Genre" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <input type="number" name="price" placeholder="Price" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+
+    <label style="text-align: left; color: #666; font-weight: 500;">Issue Date:</label>
+    <input type="date" name="issueDate" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <label style="text-align: left; color: #666; font-weight: 500;">Return Date:</label>
+    <input type="date" name="returnDate" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+
+    <input type="text" name="studentName" placeholder="Issued To (Student Name)" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+    <input type="text" name="studentId" placeholder="Student ID" 
+           style="padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+
+    <button type="submit" 
+            style="padding: 12px; background-color: #28a745; color: white; border: none; 
+                   border-radius: 6px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+      Save
+    </button>
+  </form>
+
+  <a href="/" 
+     style="display: inline-block; margin-top: 25px; padding: 12px 24px; background-color: #007bff; 
+            color: white; text-decoration: none; border-radius: 6px; font-size: 16px; transition: background-color 0.3s;">
+    ⬅️ Back
+  </a>
+
+  <script>
+    // Add hover effects using JS since you're using inline styles
+    const btn = document.querySelector("button");
+    btn.onmouseover = () => btn.style.backgroundColor = "#218838";
+    btn.onmouseout = () => btn.style.backgroundColor = "#28a745";
+
+    const backLink = document.querySelector("a");
+    backLink.onmouseover = () => backLink.style.backgroundColor = "#0069d9";
+    backLink.onmouseout = () => backLink.style.backgroundColor = "#007bff";
+  </script>
+
+</body>
+</html>

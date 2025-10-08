@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Store</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #eef2f5;
+      margin: 0;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2d3e50;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #2e86de;
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 6px 4px;
+      transition: background-color 0.3s, transform 0.2s;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      background-color: #1b4f72;
+      transform: translateY(-1px);
+    }
+
+    .btn.delete {
+      background-color: #e74c3c;
+    }
+
+    .btn.delete:hover {
+      background-color: #c0392b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background-color: #2e86de;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    td {
+      color: #34495e;
+      font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f4f8fb;
+    }
+
+    tr:hover {
+      background-color: #dfeefc;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 12px;
+      }
+      th, td {
+        padding: 10px;
+      }
+      .btn {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+
+      td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 Book Store</h1>
+
+  <a href="/add" class="btn">➕ Add Book</a>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Issue Date</th>
+      <th>Return Date</th>
+      <th>Student Name</th>
+      <th>Student ID</th>
+      <th>Actions</th>
+    </tr>
+    <% books.forEach(book => { %>
+      <tr>
+        <td data-label="Title"><%= book.title %></td>
+        <td data-label="Author"><%= book.author %></td>
+        <td data-label="Publisher"><%= book.publisher %></td>
+        <td data-label="Genre"><%= book.genre %></td>
+        <td data-label="Price"><%= book.price %></td>
+        <td data-label="Issue Date"><%= book.issueDate ? book.issueDate.toDateString() : "" %></td>
+        <td data-label="Return Date"><%= book.returnDate ? book.returnDate.toDateString() : "" %></td>
+        <td data-label="Student Name"><%= book.studentName %></td>
+        <td data-label="Student ID"><%= book.studentId %></td>
+        <td data-label="Actions">
+          <a href="/edit/<%= book._id %>" class="btn">✏️ Edit</a>
+          <a href="/delete/<%= book._id %>" class="btn delete">🗑️ Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
