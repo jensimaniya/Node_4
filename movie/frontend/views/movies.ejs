@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies</title>
+</head>
+
+<body style="
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  height: 100vh; margin: 0;
+  display: flex; justify-content: center; align-items: center;
+">
+
+  <div style="
+    background: white; padding: 35px 50px; 
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+    width: 80%; max-width: 950px;
+  ">
+    
+    <h1 style="
+      text-align: center; color: #333;
+      font-size: 30px; margin-bottom: 28px;
+      font-weight: 600;
+    ">
+      Movies List
+    </h1>
+
+    <div style="text-align: right; margin-bottom: 18px;">
+      <a href="/movies/add" 
+         style="
+           background: linear-gradient(135deg,#43e97b,#38f9d7);
+           color: white; text-decoration: none;
+           padding: 11px 18px; border-radius: 10px;
+           font-weight: 600; font-size: 15px;
+           transition: 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+         "
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+          Add Movie
+      </a>
+    </div>
+
+    <table style="
+      width: 100%; border-collapse: collapse;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    ">
+      <thead>
+        <tr style="
+          background: linear-gradient(135deg,#667eea,#764ba2);
+          color: white; font-size: 16px;
+        ">
+          <th style="padding: 14px;">Title</th>
+          <th style="padding: 14px;">Year</th>
+          <th style="padding: 14px;">Rating</th>
+          <th style="padding: 14px;">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% movies.forEach(movie => { %>
+          <tr style="
+            text-align: center; 
+            border-bottom: 1px solid #eee;
+            background-color: #fafafa; 
+            transition: 0.3s;
+          "
+          onmouseover="this.style.backgroundColor='#f1f1f1'"
+          onmouseout="this.style.backgroundColor='#fafafa'">
+            
+            <td style="padding: 12px; color: #333; font-weight: 500;">
+              <%= movie.title %>
+            </td>
+
+            <td style="padding: 12px; color: #555;">
+              <%= movie.year %>
+            </td>
+
+            <td style="padding: 12px; color: #555;">
+              <%= movie.rating %>
+            </td>
+
+            <td style="padding: 12px;">
+              <a href="/movies/edit/<%= movie._id %>" 
+                 style="
+                   text-decoration: none;
+                   background: #42a5f5;
+                   color: white; padding: 7px 12px;
+                   border-radius: 8px; margin-right: 6px;
+                   font-size: 14px; transition: 0.3s;
+                 "
+                 onmouseover="this.style.backgroundColor='#1e88e5'">
+                  Edit
+              </a>
+
+              <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE" style="display:inline;">
+                <button type="submit"
+                  style="
+                    background: #ef5350; 
+                    color: white; border: none;
+                    padding: 7px 12px; border-radius: 8px;
+                    font-size: 14px; cursor: pointer;
+                    transition: 0.3s;
+                  "
+                  onmouseover="this.style.backgroundColor='#d32f2f'">
+                    Delete
+                </button>
+              </form>
+            </td>
+
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+</html>

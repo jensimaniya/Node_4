@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Project</title>
+</head>
+
+<body style="
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh; margin: 0;
+  display: flex; justify-content: center; align-items: center;
+">
+
+  <div style="
+    background: rgba(255, 255, 255, 0.92);
+    padding: 45px 65px;
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.20);
+    text-align: center; 
+    max-width: 420px;
+  ">
+
+    <h1 style="color: #333; font-size: 28px; margin-bottom: 28px; font-weight: 600;">
+       Welcome to <span style="color: #ff5e77;">Movie Project</span>
+    </h1>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+
+      <a href="/movies/add"
+         style="
+           display: inline-block;
+           text-decoration: none; 
+           color: white; font-weight: 600;
+           padding: 14px 20px;
+           border-radius: 10px; 
+           font-size: 17px;
+           background: linear-gradient(135deg, #43e97b, #38f9d7);
+           transition: 0.3s;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+         "
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+          Add New Movie
+      </a>
+
+      <a href="/"
+         style="
+           display: inline-block;
+           text-decoration: none; 
+           color: white; font-weight: 600;
+           padding: 14px 20px;
+           border-radius: 10px; 
+           font-size: 17px;
+           background: linear-gradient(135deg, #5ee7df, #b490ca);
+           transition: 0.3s;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+         "
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+          View Movies
+      </a>
+
+    </div>
+
+  </div>
+</body>
+</html>
