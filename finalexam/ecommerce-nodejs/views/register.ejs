@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <title>Register</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d4f1e3, #f0fdf4);
+    font-family: "Poppins", sans-serif;
+  }
+
+  h1{
+    text-align: center;
+    margin-top: 35px;
+    font-size: 35px;
+    background: linear-gradient(45deg, #0b6b3a, #1ca75d);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  p[style]{
+    text-align: center;
+    font-size: 18px;
+  }
+
+  /* Beautiful Form Box */
+  form{
+    width: 380px;
+    margin: 35px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-top: 6px solid #0b6b3a;
+    transition: 0.3s;
+  }
+
+  form:hover{
+    transform: scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+  }
+
+  form label{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b6b3a;
+  }
+
+  form input{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 18px 0;
+    border: 2px solid #0b6b3a;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.25s;
+  }
+
+  form input:focus{
+    border-color:#1ca75d;
+    box-shadow: 0 0 5px rgba(28,167,93,0.5);
+  }
+
+  form button{
+    width: 100%;
+    background: linear-gradient(45deg,#0b6b3a,#15a25a);
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 19px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.2s;
+  }
+
+  form button:hover{
+    transform: translateY(-2px);
+    background: linear-gradient(45deg,#0a5c32,#12974f);
+  }
+
+</style>
+
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <h1>Register</h1>
+
+  <% if(typeof error !== 'undefined'){ %>
+      <p style="color:red"><%= error %></p>
+  <% } %>
+
+  <form method="post" action="/register">
+    
+    <label>Username</label><br/>
+    <input name="username" required/><br/>
+
+    <label>Password</label><br/>
+    <input name="password" type="password" required/><br/>
+
+    <label>Role (admin or user)</label><br/>
+    <input name="role" placeholder="admin / user"/><br/>
+
+    <button>Register</button>
+  </form>
+
+</body>
+</html>

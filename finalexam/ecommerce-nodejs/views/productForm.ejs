@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <title>Product Form</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background: linear-gradient(135deg,  #fad0c4, #fbc2eb, #a6c1ee); padding: 40px;">
+
+  <!-- Navbar -->
+  <div>
+    <%- include('partials/navbar') %>
+  </div>
+
+  <h1 style="
+      text-align:center;
+      color:#fff;
+      padding:10px 0;
+      font-size:32px;
+      margin-bottom:20px;
+      background:linear-gradient(45deg,#ff6b6b,#feca57,#48dbfb,#1dd1a1);
+      -webkit-background-clip:text;
+      color:transparent;
+  ">
+    <%= product && product._id ? 'Edit' : 'Create' %> Product
+  </h1>
+
+  <form action="<%= action %>" method="post" 
+        style="
+          max-width:500px;
+          margin:auto;
+          background:white;
+          padding:25px;
+          border-radius:12px;
+          box-shadow:0 0 20px rgba(0,0,0,0.2);
+        ">
+
+    <!-- Name -->
+    <label style="font-weight:bold; color:#6a11cb;">Name</label><br/>
+    <input name="name" value="<%= product.name || '' %>" required
+      style="
+        width:100%; padding:10px; margin:7px 0 15px;
+        border:2px solid #6a11cb; border-radius:8px;
+        background:#f3e8ff;
+      "
+    /><br/>
+
+    <!-- Price -->
+    <label style="font-weight:bold; color:#ff6b6b;">Price</label><br/>
+    <input name="price" type="number" value="<%= product.price || '' %>" required
+      style="
+        width:100%; padding:10px; margin:7px 0 15px;
+        border:2px solid #ff6b6b; border-radius:8px;
+        background:#ffe8e8;
+      "
+    /><br/>
+
+    <!-- Category -->
+    <label style="font-weight:bold; color:#1dd1a1;">Category</label><br/>
+    <select name="category"
+      style="
+        width:100%; padding:10px; margin:7px 0 15px;
+        border:2px solid #1dd1a1; border-radius:8px;
+        background:#e8fff5;
+      "
+    >
+      <option value="">-- select --</option>
+      <% categories.forEach(c=>{ %>
+        <option 
+          value="<%= c._id %>" 
+          <%= (product.category && String(c._id)===String(product.category)) ? 'selected' : '' %>
+        >
+          <%= c.name %>
+        </option>
+      <% }) %>
+    </select><br/>
+
+    <!-- Description -->
+    <label style="font-weight:bold; color:#f368e0;">Description</label><br/>
+    <textarea name="description"
+      style="
+        width:100%; padding:12px; margin:7px 0 15px;
+        border:2px solid #f368e0; border-radius:8px;
+        height:100px;
+        background:#ffe8fb;
+      "
+    ><%= product.description || '' %></textarea><br/>
+
+    <!-- Submit Button -->
+    <button type="submit"
+      style="
+        width:100%; padding:12px;
+        background:linear-gradient(45deg,#ff9a9e,#fad0c4,#a1c4fd,#c2e9fb);
+        border:none; color:#000; font-size:18px;
+        border-radius:10px; cursor:pointer;
+        font-weight:bold; box-shadow:0 5px 12px rgba(0,0,0,0.2);
+      "
+    >
+      Save
+    </button>
+  </form>
+
+</body>
+</html>

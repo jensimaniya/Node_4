@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Products</title>
+
+  <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+  /* Page Background */
+  background: linear-gradient(135deg, #ffecd2, #fcb69f, #fbc2eb, #a6c1ee);
+  background-size: 300% 300%;
+  animation: bgMove 8s ease infinite;
+}
+
+/* BG Animation */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Page Title */
+h1{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 34px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6a88, #ff99ac, #845ec2);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Product List */
+ul{
+  list-style: none;
+  padding: 0;
+  max-width: 850px;
+  margin: 30px auto;
+}
+
+/* Product Card */
+ul li{
+  background: white;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+
+  border-left: 6px solid #ff6a88;
+  border-right: 6px solid #845ec2;
+}
+
+/* Product Name */
+ul li strong{
+  font-size: 18px;
+  background: linear-gradient(45deg,#845ec2,#ff6a88,#ff99ac);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* Price + Category Text */
+ul li span{
+  color:#444;
+  margin-left: 8px;
+}
+
+/* Edit Button */
+ul li a{
+  background: linear-gradient(45deg, #845ec2, #ff6a88, #ff99ac);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  background-size: 200% 200%;
+}
+
+ul li a:hover{
+  background-position: right;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <h1>My Products</h1>
+
+  <ul>
+    <% products.forEach(p => { %>
+      <li>
+        <div>
+          <strong><%= p.name %></strong>
+          <span> - ₹<%= p.price %></span>
+          <span> - <%= p.category ? p.category.name : '' %></span>
+        </div>
+
+        <a href="/products/<%= p._id %>/edit">Edit</a>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>
